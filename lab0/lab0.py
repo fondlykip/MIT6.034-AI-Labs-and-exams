@@ -91,7 +91,20 @@ def depth(expr):
 # Problem 2.3: Tree indexing
 
 def tree_ref(tree, index):
-    raise NotImplementedError
+    inTree = tree
+    indexes = list(index)
+    numrefs = len(indexes)
+
+    checkidx = indexes[0]
+    checknode = inTree[checkidx]
+    
+    if numrefs > 1:
+        newlist = indexes[1:numrefs]
+        return tree_ref(checknode, newlist)
+    else:
+        return checknode
+        
+    
 
 
 # Section 3: Symbolic algebra
